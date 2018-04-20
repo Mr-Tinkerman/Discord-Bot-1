@@ -5,6 +5,7 @@ var prefix = config_file.prefix;
 
 
 client.on("ready", () => {
+  message.channel.send("Welcome " + message.author.id);
   console.log("I am ready!");
 });
 
