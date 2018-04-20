@@ -17,16 +17,19 @@ client.on("message", (message) => {
     message.channel.send("pong");
   } 
   else 
-    try 
+    if (command === "clear")
     {
-      if (message.member.hasPermission("MANAGE_MESSAGES")) 
+      try 
       {
-        messages = message.channel.fetchMessages();
-        message.channel.bulkDelete(messages);
+        if (message.member.hasPermission("MANAGE_MESSAGES")) 
+        {
+          messages = message.channel.fetchMessages();
+          message.channel.bulkDelete(messages);
+        }
+      } catch(e) {
+          message.channel.send("ERROR: ERROR CLEARING CHANNEL.");
+          console.log(e);
       }
-    } catch(e) {
-        message.channel.send("ERROR: ERROR CLEARING CHANNEL.");
-        console.log(e);
     }
 });
 
