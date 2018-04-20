@@ -9,14 +9,17 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.slice(prefix.length).trim().split(/ +/g);
+  var command = args.shift().toLowerCase();
 
   message.channel.send(message.author.id);
-  if (message.content.startsWith(prefix + "ping")) {
+  if (command === "ping") 
+  {
     message.channel.send("pong");
-  } else
-  if (message.content.startsWith(prefix + "Hi") || message.content.startsWith(prefix + "Hello") || message.content.startsWith(prefix + "Herro")) {
-    message.channel.send("Hi... how are you?");
+  } 
+  else 
+  {
+    message.channel.send("Invalid Command!!!")
   }
 });
 
