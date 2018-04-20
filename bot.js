@@ -19,16 +19,9 @@ client.on("message", (message) => {
   else 
     if (command === "clear")
     {
-      try 
+      if (message.member.hasPermission("MANAGE_MESSAGES")) 
       {
-        if (message.member.hasPermission("MANAGE_MESSAGES")) 
-        {
-          messages = message.channel.fetchMessages();
-          message.channel.bulkDelete(messages);
-        }
-      } catch(e) {
-          message.channel.send("ERROR: ERROR CLEARING CHANNEL.");
-          console.log(e);
+        message.channel.fetchMessages().then(function(list){message.channel.bulkDelete(list);}, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})                        
       }
     }
 });
