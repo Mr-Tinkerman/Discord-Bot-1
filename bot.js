@@ -13,7 +13,7 @@ client.on("message", (message) => {
     message.channel.send("pong");
   } else
   if (message.content.startsWith(prefix + "Hi") || message.content.startsWith(prefix + "Hello") || message.content.startsWith(prefix + "Herro")) {
-    message.channel.send("Hi, how are you");
+    message.channel.send("Hi... how are you?");
   }
 });
 
