@@ -19,7 +19,7 @@ client.on("message", (message) => {
   } 
   else 
   {
-    message.channel.send("Invalid Command!!!")
+    message.channel.send("Invalid Command!!!");
   }
 });
 
