@@ -1,4 +1,4 @@
 {
   "prefix": "!"
-  "special-permission": []
+  "special-permissions": ["me"]
 }
