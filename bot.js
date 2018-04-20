@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config_file = require("./config.json");
-var prefix = config_file.prefix;
+var prefix;
 
 client.on("ready", () => {
+  prefix = config_file.prefix;
   console.log("I am ready!");
 });
 
