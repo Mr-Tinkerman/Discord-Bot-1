@@ -12,12 +12,11 @@ client.on("message", (message) => {
   var args = message.content.slice(prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();
 
-  message.channel.send(message.author.id);
   if (command === "ping") 
   {
     message.channel.send("pong");
   } 
-  else 
+  else if (command === "clear" && config_file.admin_permissions.includes(message.author.id))
   {
     message.channel.send("Invalid Command!!!");
   }
