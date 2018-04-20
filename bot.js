@@ -1,22 +1,21 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config_file = require("./config.json");
-var prefix;
+const config = require("./config.json");
 
 client.on("ready", () => {
-  prefix = config_file.prefix;
   console.log("I am ready!");
 });
 
 client.on("message", (message) => {
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(config.prefix)) return;
 
-  if (message.content.startsWith(prefix + "ping")) {
+  if (message.content.startsWith(config.prefix + "ping")) {
     message.channel.send("pong");
   } else
-  if (message.content.startsWith(prefix + "Hi") || message.content.startsWith(prefix + "Hello") || message.content.startsWith(prefix + "Herro")) {
+  if (message.content.startsWith(config.prefix + "Hi") || message.content.startsWith(config.prefix + "Hello") || message.content.startsWith(config.prefix + "Herro")) {
     message.channel.send("Hi... how are you?");
   }
 });
 
 client.login(process.env.BOT_TOKEN);
+//(config.prefix + "");
